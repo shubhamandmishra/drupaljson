@@ -1,0 +1,83 @@
+Here are the steps to set up your Drupal site with specific modules, content types, paragraphs, and views:
+
+1- Start by installing Drupal using Composer with the following command:
+
+   composer create-project drupal/recommended-project:10.2.5 "install-dir"
+
+2- After installing Drupal, install the Admin Toolbar module using Composer:
+
+   composer require 'drupal/admin_toolbar:^3.4'
+
+3- Next, install the Paragraphs module:
+
+  composer require 'drupal/paragraphs:^1.17'
+
+4- Enable the Paragraphs module and its dependencies, as well as the RESTful Web Services module and its dependencies.
+   Under "Structure" > "Paragraph types,"
+ 
+5- create three paragraph types:
+
+   a)-Heading Description (Fields: Heading (plain text), Description (formatted, long text))
+   b)- Heading Image (Fields: Heading (plain text), Image)
+   c)- Heading Link (Fields: Heading (plain text), Link)
+
+6- Create three content types:
+   a)- Blog (Fields: Heading Description (Reference Type Paragraph), bodyText (formatted, long, with summary))
+   b)- Gallery (Fields: Heading Image (Reference Type Paragraph), bodyText (formatted, long, with summary))
+   c)- Shared Link (Fields: Heading Link (Reference Type Paragraph), bodyText (formatted, long, with summary))
+
+7- Create a total of nine pieces of content (three for each content type) under the "Content" section.
+
+8- Create three views for JSON return under "Structure" > "Views":
+
+9- Click "Add view" and under view settings, select the respective content type and check "Provide a REST export."  
+   Then click "Save and edit."
+
+10- Under Format section, format settings, check "JSON."
+
+11- Add a relationship to the reference paragraph field attached in the content type.
+
+12- Add fields: title, body, and the paragraph content type attached fields (e.g., heading, description). 
+
+13- Under path settings, add the path (e.g., /blog-json).
+
+14- Save the view and check the URL.
+
+16- The names of the views would be:
+
+    a)- Blog JSON (URL: /blog-json)
+    b)- Gallery JSON (URL: /gallery-json)
+    c)-Shared Link JSON (URL: /shared-link-json)
+
+17- Create Remote Repository on GitHub "drupaljson":
+    Go to GitHub and create a new repository named "drupaljson" at https://github.com/shubhamandmishra/drupaljson.
+
+18- Steps to Upload Project on GitHub:
+
+    a)- Clone the project from GitHub:
+ 
+        git clone https://github.com/shubhamandmishra/drupaljson.git
+
+     b)- Add the project files to the local repository:
+
+         git add .
+
+     c)- Commit the changes:
+
+         git commit -m "Upload complete project on Git"
+
+     d)- Push the changes to the remote repository:
+
+         git push -u origin main
+
+19- Upload MySQL File to GitHub:
+
+20- Compress your MySQL database file into a ZIP archive named "drupal10.sql.zip".
+
+21- Upload the ZIP file to the GitHub repository manually via the GitHub web interface.
+     
+22- After cloning the Git project, upload the database file and replace the database "username" and "password" in the settings.php file.
+
+     a) Admin Login Credentials:
+        Username: root
+        Password: shubham@123
